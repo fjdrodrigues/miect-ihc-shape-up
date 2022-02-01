@@ -1,0 +1,121 @@
+﻿<Page x:Class="ShapeUp.MyShapeUp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShapeUp"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="MyShapeUp"
+      ShowsNavigationUI="false"
+      Style="{StaticResource Page_Style}"
+      Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}"
+      Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"
+      >
+    <Grid Margin="10,10,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40px" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0, 0, 0, 5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="20px" />
+            </Grid.ColumnDefinitions>
+            <Label Margin="30, 0, 0, 0" TextBlock.FontSize="20" TextBlock.Foreground="White" TextBlock.FontWeight="ExtraBold" Grid.Column="0">Shape Up</Label>
+            <Button Click="Minimize_Button_Click" Style="{StaticResource Minimize}" Name="Minimize_Button" Grid.Column="1">-</Button>
+        </Grid>
+        <Border Grid.Row="0" BorderBrush="#ffffff" BorderThickness="0, 0, 0, 1"></Border>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Name="Logged_Menu" Visibility="Visible">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5px" />
+                    <RowDefinition Height="85px" />
+                    <RowDefinition Height="85px" />
+                    <RowDefinition Height="85px" />
+                    <RowDefinition Height="85px" />
+                    <RowDefinition Height="85px" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="65px" />
+                    <RowDefinition Height="65px" />
+                    <RowDefinition Height="65px" />
+                    <RowDefinition Height="65px" />
+                </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource Logged_Medium_Menu_Buttons}" Click="Home_Button_Click" Name="Logged_Home_Button" Grid.Row="1">Home</Button>
+                <Button Style="{StaticResource Logged_Medium_Menu_Buttons}" Click="Account_Button_Click" Name="Account_Button" Grid.Row="2">Account</Button>
+                <Button Style="{StaticResource Logged_Medium_Menu_Buttons}" Click="Exercises_Button_Click" Name="Exercises_Button" Grid.Row="3">Exercises</Button>
+                <Button Style="{StaticResource Logged_Medium_Menu_Buttons}" Click="Food_Button_Click" Name="Food_Button" Grid.Row="4">Food</Button>
+                <Button Style="{StaticResource Logged_Medium_Selected_Menu_Buttons}" IsEnabled="False" Name="MyShapeUp_Button" Grid.Row="5">My ShapeUp</Button>
+                <Button Style="{StaticResource Logged_Small_Menu_Buttons}" Click="About_Button_Click" Name="Logged_About_Button" Grid.Row="8">About</Button>
+                <Button Style="{StaticResource Logged_Small_Menu_Buttons}" Click="Logout_Button_Click" Name="Logout_Button" Grid.Row="9">Logout</Button>
+                <Button Style="{StaticResource Logged_Small_Exit_Button}" Click="Exit_Button_Click" Name="Logged_Exit_Button" Grid.Row="10">Exit</Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200px" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="50px" />
+                    <RowDefinition Height="100px" />
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource Login_Label}" Grid.Row="0" >My ShapeUp</Label>
+
+                <DataGrid Grid.Row="1" Name="MyShapeUp_DataGrid"
+                          Style="{StaticResource Datagrid_Style}"
+                          ColumnHeaderStyle="{StaticResource Datagrid_ColumnHeader_Style}"
+                          RowStyle="{StaticResource Datagrid_Row_Style}"
+                          CellStyle="{StaticResource Datagrid_Cell_Style}"
+                          AutoGenerateColumns="True" AutoGeneratingColumn="AutoGeneratingColumn"></DataGrid>
+                <Label Grid.Row="1" Name="Empty_DataGrid_Label"
+                       Style="{StaticResource Empty_Datagrid_Style}" />
+
+                <Grid Grid.Row="2" Name="Buttons_Grid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="Exercises_Grid_Button_Click"
+                            Style="{StaticResource Exercises_Grid_Button}"
+                            Grid.Column="1"  Name="Exercises_Grid_Button">Exercise</Button>
+                    <Button Click="Food_Grid_Button_Click"
+                            Style="{StaticResource Food_Grid_Button}"
+                            Grid.Column="2"  Name="Food_Grid_Button">Food</Button>
+                    <Label Name="Deleting_Receipt_From_MyShapeUp_Error"
+                           Style="{StaticResource Adding_Item_To_MyShapeUp_Error_Style}"
+                           Grid.Column="3" >No Receipt Selected!</Label>
+                    <Label Name="Deleting_Exercise_From_MyShapeUp_Error"
+                           Style="{StaticResource Adding_Item_To_MyShapeUp_Error_Style}"
+                           Grid.Column="3" >No Exercise Selected!</Label>
+                    <Label Name="Deleting_Exercise_From_MyShapeUp_Confirmation"
+                           Style="{StaticResource Adding_Item_To_MyShapeUp_Confirmation_Style}"
+                           Grid.Column="3" >Exercise deleted!</Label>
+                    <Label Name="Deleting_Receipt_From_MyShapeUp_Confirmation"
+                           Style="{StaticResource Adding_Item_To_MyShapeUp_Confirmation_Style}"
+                           Grid.Column="3" >Receipt deleted!</Label>
+                    <Button Click="Add_Exercise_Button_Click"
+                            Style="{StaticResource Add_Exercise_Button}"
+                            Grid.Column="4"  Name="Add_Exercise_Button">Add Exercise</Button>
+                    <Button Click="Add_Receipt_Button_Click"
+                            Style="{StaticResource Add_Receipt_Button}"
+                            Grid.Column="4"  Name="Add_Receipt_Button"
+                            Visibility="Hidden">Add Receipt</Button>
+                    <Button Click="Delete_Exercise_Button_Click"
+                            Style="{StaticResource Delete_Exercise_Receipt_Button}"
+                            Grid.Column="5"  Name="Delete_Exercise_Button">Delete</Button>
+                    <Button Click="Delete_Food_Button_Click"
+                            Style="{StaticResource Delete_Exercise_Receipt_Button}"
+                            Grid.Column="5"  Name="Delete_Food_Button" Visibility="Hidden">Delete</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

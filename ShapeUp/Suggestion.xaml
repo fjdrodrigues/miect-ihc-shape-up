@@ -1,0 +1,93 @@
+﻿<Page x:Class="ShapeUp.Suggestion"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ShapeUp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="Suggestion"
+      ShowsNavigationUI="false"
+      Style="{StaticResource Page_Style}">
+
+    <Grid Name="Add_Item_Grid" Grid.Column="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="50px" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource Login_Label}" Grid.Row="0" >Suggestion</Label>
+        <Grid Name="Add_Item_Item_Type_Grid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Grid.Column="0">Item Type:</Label>
+            <ComboBox SelectionChanged="Item_Type_SelectionChanged"  Style="{StaticResource Add_Item_Combobox_Style}" Grid.Column="1" Name="Item_Type">
+                <ComboBoxItem>Exercise</ComboBoxItem>
+                <ComboBoxItem>Receipt</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Name="Add_Item_Name_Grid" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Grid.Column="0" Visibility="Hidden" Name="Exercise_Receipt_Name_Label">Name:</Label>
+            <TextBox Style="{StaticResource Add_Item_Textbox_Style}" Grid.Column="1" Name="Exercise_Name" Visibility="Hidden"></TextBox>
+            <TextBox Style="{StaticResource Add_Item_Textbox_Style}"  Grid.Column="1" Name="Receipt_Name" Visibility="Hidden"></TextBox>
+        </Grid>
+        <Grid Name="Add_Item_Type_Grid" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Grid.Column="0" Visibility="Hidden" Name="Exercise_Type_Label">Exercise Type:</Label>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Grid.Column="0" Visibility="Hidden" Name="Receipt_Type_Label">Receipt Type:</Label>
+            <ComboBox Style="{StaticResource Add_Item_Combobox_Style}"  Grid.Column="1" Name="Exercise_Type" Visibility="Hidden">
+                <ComboBoxItem>Fitness</ComboBoxItem>
+                <ComboBoxItem>Running</ComboBoxItem>
+                <ComboBoxItem>Weight Lifting</ComboBoxItem>
+                <ComboBoxItem>Calisthenics</ComboBoxItem>
+            </ComboBox>
+            <ComboBox Style="{StaticResource Add_Item_Combobox_Style}"  Grid.Column="1" Name="Receipt_Type"  Visibility="Hidden">
+                <ComboBoxItem>Breakfast</ComboBoxItem>
+                <ComboBoxItem>Lunch</ComboBoxItem>
+                <ComboBoxItem>Snack</ComboBoxItem>
+                <ComboBoxItem>Dinner</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Name="Add_Item_Difficulty_Grid" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Grid.Column="0" Visibility="Hidden" Name="Difficulty_Label">Difficulty:</Label>
+            <ComboBox Style="{StaticResource Add_Item_Combobox_Style}"  Grid.Column="1" Name="Difficulty" Visibility="Hidden">
+                <ComboBoxItem>Easy</ComboBoxItem>
+                <ComboBoxItem>Medium</ComboBoxItem>
+                <ComboBoxItem>Difficult</ComboBoxItem>
+                <ComboBoxItem>Hardcore</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid Name="Add_Item_Duration_Calories_Grid" Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Name="Exercise_Duration_Label" Grid.Column="0" Visibility="Hidden">Duration:</Label>
+            <TextBox Style="{StaticResource Add_Item_Textbox_Style}" Grid.Column="1" Name="Exercise_Duration" Visibility="Hidden"></TextBox>
+            <Label Style="{StaticResource Add_Item_Label_Style}" Name="Receipt_Calories_Label" Grid.Column="0" Visibility="Hidden">Calories:</Label>
+            <TextBox Style="{StaticResource Add_Item_Textbox_Style}" Grid.Column="1" Name="Receipt_Calories" Visibility="Hidden"></TextBox>
+        </Grid>
+        <Button Click="Add_Item_Button_Click" Style="{StaticResource Registration_Button}" Grid.Row="6"  Name="Add_Item_Button" Visibility="Hidden">Suggest</Button>
+        <Button Click="Cancel_Add_Item_Button_Click" Style="{StaticResource Cancel_Registration_Button}" Grid.Row="6"  Name="Cancel_Add_Item_Button">Cancel</Button>
+        <Label Style="{StaticResource Bad_Register_Label}" Grid.Row="7" Name="Add_Item_Error_Label" Visibility="Hidden"></Label>
+    </Grid>
+</Page>
